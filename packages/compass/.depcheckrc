@@ -3,7 +3,9 @@ ignores: [
     '@mongodb-js/tsconfig-compass',
     # peer dependency of compass-shell
     '@mongosh/node-runtime-worker-thread',
+    # native addons
     'os-dns-native',
+    'system-ca',
     # webpack always externalizes 'clipboard' for legacy reasons
     'clipboard'
   ]

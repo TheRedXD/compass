@@ -22,6 +22,12 @@ export const ConnectionFormGeneralTabButton =
   '[data-testid="connection-general-tab"]';
 export const ConnectionFormAuthenticationTabButton =
   '[data-testid="connection-authentication-tab"]';
+export const ConnectionFormTLSTabButton = '[data-testid="connection-tls-tab"]';
+export const ConnectionFormTLSONButton =
+  'label[for="connection-tls-enabled-ON-radio-button"]';
+export const ConnectionFormTLSOFFButton =
+  'label[for="connection-tls-enabled-OFF-radio-button"]';
+export const ConnectionFormTLSUseSystemCA = 'label[for="useSystemCA-input"]';
 export const ConnectionFormInputHost =
   '[data-testid="connection-host-input-0"]';
 export const ConnectionFormInputSrvRecord =
