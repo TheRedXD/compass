@@ -136,7 +136,7 @@ describe('SRV connectivity', function () {
 });
 
 // eslint-disable-next-line mocha/max-top-level-suites
-describe.only('System CA access', function () {
+describe('System CA access', function () {
   it('allows using the system certificate store for connections', async function () {
     const compass = await beforeTests();
     const browser = compass.browser;
