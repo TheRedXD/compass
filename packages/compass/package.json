@@ -104,6 +104,8 @@
           "**/bindings/**",
           "**/ipv6-normalize/**",
           "**/node-addon-api/**",
+          "**/win-export-certificate-and-key/**",
+          "**/macos-export-certificate-and-key/**",
           "**/system-ca/**"
         ]
       },
@@ -263,7 +265,9 @@
     "web-vitals": "^2.1.2"
   },
   "optionalDependencies": {
-    "vscode-windows-registry": "1.0.2"
+    "vscode-windows-registry": "1.0.2",
+    "macos-export-certificate-and-key": "^1.1.1",
+    "win-export-certificate-and-key": "^1.1.1"
   },
   "engines": {
     "node": "^14.17.5",
