@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Checkbox,
   Description,
+  Label,
   FileInput,
   css,
   cx,
@@ -56,20 +57,26 @@ function TLSCertificateAuthority({
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           updateCAFile(null, event.target.checked);
         }}
-        id="useSystemCA-input"
         data-testid="useSystemCA-input"
-        label="Use System Certificate Authority"
+        id="useSystemCA-input"
+        label={
+          <>
+            <Label htmlFor="useSystemCA-input">
+              Use System Certificate Authority
+            </Label>
+            <Description
+              className={cx(checkboxDescriptionStyles, {
+                [disabledCheckboxDescriptionStyles]: disabled,
+              })}
+            >
+              Use the operating system’s Certificate Authority store.
+            </Description>
+          </>
+        }
         disabled={disabled}
         checked={useSystemCA}
         bold={false}
       />
-      <Description
-        className={cx(checkboxDescriptionStyles, {
-          [disabledCheckboxDescriptionStyles]: disabled,
-        })}
-      >
-        Use the operating system’s Certificate Authority store.
-      </Description>
     </FormFieldContainer>
   );
 }
