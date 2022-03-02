@@ -25,6 +25,7 @@ describe('SchemaInput', function () {
       const component = render(
         <SSLTab
           connectionStringUrl={testUrl}
+          connectionOptions={{connectionString: testUrl.href, useSystemCA: false}}
           updateConnectionFormField={updateConnectionFormFieldSpy}
         />
       );
@@ -59,7 +60,7 @@ describe('SchemaInput', function () {
 
     it('should render all of the checkboxes unchecked', function () {
       const checkboxes: HTMLInputElement[] = screen.getAllByRole('checkbox');
-      expect(checkboxes.length).to.equal(3);
+      expect(checkboxes.length).to.equal(4);
       expect(checkboxes.find((checkbox) => checkbox.checked)).to.equal(
         undefined
       );
@@ -124,11 +125,16 @@ describe('SchemaInput', function () {
       });
 
       it('should call to update the tlsCAFile with the chosen file', function () {
-        expect(updateConnectionFormFieldSpy.callCount).to.equal(1);
+        expect(updateConnectionFormFieldSpy.callCount).to.equal(2);
         expect(updateConnectionFormFieldSpy.firstCall.args[0]).to.deep.equal({
           type: 'update-tls-option',
           key: 'tlsCAFile',
           value: 'new/caFile/path',
+        });
+        expect(updateConnectionFormFieldSpy.secondCall.args[0]).to.deep.equal({
+          type: 'update-tls-option',
+          key: 'useSystemCA',
+          value: null,
         });
       });
     });
@@ -166,6 +172,7 @@ describe('SchemaInput', function () {
         rerender(
           <SSLTab
             connectionStringUrl={testUrl}
+            connectionOptions={{connectionString: testUrl.href, useSystemCA: false}}
             updateConnectionFormField={updateConnectionFormFieldSpy}
           />
         );
@@ -182,6 +189,7 @@ describe('SchemaInput', function () {
         rerender(
           <SSLTab
             connectionStringUrl={testUrl}
+            connectionOptions={{connectionString: testUrl.href, useSystemCA: false}}
             updateConnectionFormField={updateConnectionFormFieldSpy}
           />
         );
@@ -201,6 +209,7 @@ describe('SchemaInput', function () {
         rerender(
           <SSLTab
             connectionStringUrl={testUrl}
+            connectionOptions={{connectionString: testUrl.href, useSystemCA: false}}
             updateConnectionFormField={updateConnectionFormFieldSpy}
           />
         );
@@ -260,6 +269,7 @@ describe('SchemaInput', function () {
             rerender(
               <SSLTab
                 connectionStringUrl={testUrl}
+                connectionOptions={{connectionString: testUrl.href, useSystemCA: false}}
                 updateConnectionFormField={updateConnectionFormFieldSpy}
               />
             );
@@ -302,6 +312,7 @@ describe('SchemaInput', function () {
       render(
         <SSLTab
           connectionStringUrl={connectionStringUrl}
+          connectionOptions={{connectionString: connectionStringUrl.href, useSystemCA: false}}
           updateConnectionFormField={updateConnectionFormFieldSpy}
         />
       );
